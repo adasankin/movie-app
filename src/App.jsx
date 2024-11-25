@@ -39,27 +39,29 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
       <Header title="MoaLand" onSearch={handleSearch} />
 
-      <div className="container mt-4">
-        {loading && <div className="alert alert-info">Loading...</div>}
-        {error && <div className="alert alert-danger">{error}</div>}
+      <main className="flex-grow-1">
+        <div className="container mt-4">
+          {loading && <div className="alert alert-info">Loading...</div>}
+          {error && <div className="alert alert-danger">{error}</div>}
 
-        <div className="mx-auto mt-4">
-          <div className="row">
-            {movies.length > 0 ? (
-              movies.map((movie) => (
-                <div key={movie.id} className="col-6 col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3 p-2">
-                  <Movie movie={movie} />
-                </div>
-              ))
-            ) : (
-              !loading && !error && <p>No movies found</p>
-            )}
+          <div className="mx-auto mt-4">
+            <div className="row">
+              {movies.length > 0 ? (
+                movies.map((movie) => (
+                  <div key={movie.id} className="col-6 col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 mb-3 p-2">
+                    <Movie movie={movie} />
+                  </div>
+                ))
+              ) : (
+                !loading && !error && <p>No movies found</p>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer/>
     </div>
   );

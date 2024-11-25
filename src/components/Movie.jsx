@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import noPoster from '../assets/no-poster-available.jpg';
 
 const Movie = ({ movie }) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -9,9 +10,9 @@ const Movie = ({ movie }) => {
       {movie.poster_path ? (
         <img src={posterUrl} alt={movie.title || movie.name} className="card-img-top" />
       ) : (
-        <p className="text-center">No Image Available</p>
+        <img src={noPoster} alt="No Poster Available" className="card-img-top" />
       )}
-      <div className="card-body p-2">
+      <div className="card-body">
         <h6 className="card-title text-center fs-6">
           {movie.title || movie.name}
         </h6>
